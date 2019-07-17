@@ -21,7 +21,7 @@ function replace_ep()
     #echo "now we are in the function replace_ep"
     if [[  "$ACTION" = "dry" ]]; then 
        #echo "modifying ADDR: $ADDRESSES in dry run"
-       echo " This is dry run .... check the outputs below and verify, you can as well copy and past the oc line and run the action manually, but set --dry-run to false"
+       echo " This is dry run .... check the outputs below and verify, you can as well copy and paste the oc line and run the action manually, but set --dry-run to false"
        echo "oc -n $NS patch -o json --dry-run=true ep/${EP_NS[$ENDP_NS]}  -p '{\"subsets\":[{\"addresses\":[$ADDRESSES],\"ports\": [{\"port\": 1,\"protocol\": \"TCP\"}]}]}' "
        oc -n ${NS} patch -o json --dry-run=true ep/${EP_NS[$ENDP_NS]}  -p "{\"subsets\":[{\"addresses\":[${ADDRESSES}],\"ports\": [{\"port\": 1,\"protocol\": \"TCP\"}]}]}"
     else
