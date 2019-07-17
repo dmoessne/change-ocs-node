@@ -26,7 +26,7 @@ function replace_ep()
        oc -n ${NS} patch -o json --dry-run=true ep/${EP_NS[$ENDP_NS]}  -p "{\"subsets\":[{\"addresses\":[${ADDRESSES}],\"ports\": [{\"port\": 1,\"protocol\": \"TCP\"}]}]}"
     else
        #echo "modifying ADDR: $ADDRESSES in final run"
-       echo "This is final run, so no watch and pray:)"
+       echo "This is final run, so now watch and pray:)"
        #echo "oc -n $NS patch -o json --dry-run=false ep/${EP_NS[$ENDP_NS]}  -p '{\"subsets\":[{\"addresses\":[$ADDRESSES],\"ports\": [{\"port\": 1,\"protocol\": \"TCP\"}]}]}' "
        oc -n ${NS} patch -o json --dry-run=false ep/${EP_NS[$ENDP_NS]}  -p "{\"subsets\":[{\"addresses\":[${ADDRESSES}],\"ports\": [{\"port\": 1,\"protocol\": \"TCP\"}]}]}"
     fi
